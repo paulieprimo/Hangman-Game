@@ -7,71 +7,14 @@
   <title>HangMan Game</title>
 </head>
 
-  
-
-
-
-
-  
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    var guessArr = [];
-    var wordBankArr = ["truck", "car", "jeep","suv", "mini", "van", "tanker", "hummer"];
-    var pick = wordBankArr[Math.floor(Math.random() * wordBankArr.length)];
-    var counter = 0;
-    var match = 0;
-
-
-    function Setup() {
-    
-    for (var i = 0; i < pick.length; i++) {
-
-        guessArr[i] = "_ ";
-        
-
-      }
-    
-    spaces = guessArr.join(" ");
-    $("#answer").text(spaces);
-    }
-      
-    function Letter() {
-
-      var letter = $("#letter").val();
-      
-      for (var i = 0; i < pick.length; i++){
-
-        if (pick[i] === letter){
-          guessArr[i] = letter;
-          counter --;  
-        }
-      
-      }
-    counter ++;
-    spaces = guessArr.join(" ");
-    $("#answer").text(spaces);
-    $("#counter").text("Number of Tries: " + counter);
-    $("#hangman").empty().append("<img id='hangman' src='assets/images/hangman-" + counter + ".png'/>")
-    
-    }
-    
-  
-  
-  
-  
-
-
-
-
-
-</script>
+<script src='assets/javascript/game.js'></script> 
 
 <body onload="Setup()">
 
     <h1>Hang Man! </h1>
-    <div>Types of Vehicles: Guess a Letter</div>
+    <div>Types of Vehicles: Press a key to guess a letter</div>
     <input id="letter" type="text">
-    <input type = "button" value="Guess" onClick= "Letter()"/>
+  
     
     <div>
     <p id="answer"></p>
